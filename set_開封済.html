@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>開封済 — 相場ノート</title><style>
+:root{--ink:#16181C;--muted:#72777D;--line:#E3E5DF;--slab:#1B2A4A;--deal:#12855C;--paper:#F3F4F1}
+*{margin:0;box-sizing:border-box;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif}
+body{background:var(--paper);color:var(--ink);line-height:1.6}
+.num{font-variant-numeric:tabular-nums}a{text-decoration:none;color:inherit}
+.top{background:#fff;border-bottom:1px solid var(--line)}
+.top .in{max-width:1080px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;font-size:18px}.brand small{color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.12em;margin-left:8px}
+.lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:12px;font-weight:700}
+.lang span{padding:6px 12px;cursor:pointer}.lang .on{background:var(--slab);color:#fff}
+.layout{max-width:1080px;margin:0 auto;padding:20px;display:grid;grid-template-columns:230px 1fr;gap:24px}
+@media(max-width:720px){.layout{grid-template-columns:1fr}.side{display:none}}
+.side h3{font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:700;margin:0 0 8px}
+.kw{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}.kwempty{font-size:11px;color:#bbb}
+.grp{margin-bottom:16px}.gh{font-size:12.5px;font-weight:800;margin:0 0 5px;display:flex;align-items:center;gap:6px}
+.gh .badge{font-size:10px;font-weight:700;color:var(--muted);background:#EDEEEA;border-radius:5px;padding:1px 6px}
+.setlink{display:block;font-size:12.5px;padding:5px 8px;border-radius:6px}
+.setlink:hover{background:#fff}.setlink.dis{cursor:default;opacity:.75}.setlink.sel,.rlink.sel{background:var(--slab);color:#fff}.setlink.sel .co,.setlink.sel .c{color:#fff}
+.setlink .co{color:var(--deal);font-weight:700;font-variant-numeric:tabular-nums}
+.setlink .c{float:right;color:var(--muted);font-size:11px}.setlink .c.z{color:#ccc}
+.hidden{display:none}.more{font-size:12px;color:var(--deal);font-weight:700;cursor:pointer;padding:4px 8px;display:inline-block}
+.rare{display:flex;flex-wrap:wrap;gap:6px}
+.rlink{font-size:12.5px;padding:5px 11px;background:#fff;border:1px solid var(--line);border-radius:8px}
+.rlink:hover{border-color:var(--slab)}.rlink .c{color:var(--muted);font-size:11px;margin-left:4px}
+h1{font-size:24px;font-weight:800;margin:0 0 6px}.sub{font-size:13px;color:var(--muted);margin-bottom:16px}
+#q{width:100%;padding:14px 16px;font-size:16px;border:1px solid var(--line);border-radius:12px;background:#fff}
+#q:focus{outline:2px solid var(--deal);border-color:transparent}
+.cnt{font-size:12px;color:var(--muted);margin:14px 2px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.card{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;color:inherit}
+.card:hover{border-color:var(--slab)}
+.thumb{aspect-ratio:63/88;background:#fff;border:1px solid var(--line);border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb.noimg{background:repeating-linear-gradient(135deg,#F7F8F5,#F7F8F5 7px,#EEF0EC 7px,#EEF0EC 14px)}
+.thumb.noimg img{display:none}
+.eb{font-size:11px;font-weight:700;color:var(--deal)}.cn{font-size:14px;font-weight:800;margin:2px 0}
+.vr{font-size:12px;color:var(--muted)}.pr{margin-top:8px;font-size:16px;font-weight:800;color:var(--slab)}
+.pr .lb{font-size:10px;color:var(--muted);font-weight:600;display:block}
+.morebtn{display:block;text-align:center;margin:18px auto 0;font-size:13px;font-weight:700;color:var(--deal);border:1px solid var(--line);background:#fff;padding:11px 24px;border-radius:10px;width:fit-content}
+.empty{color:var(--muted);padding:30px;text-align:center}
+.trust{margin:26px 0 40px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:12px;font-size:12px;color:var(--muted)}
+.trust b{color:var(--ink)}
+.loadmore{display:block;margin:22px auto 40px;font-size:14px;font-weight:700;color:#fff;background:var(--slab);border:none;padding:12px 30px;border-radius:10px;cursor:pointer}
+.wrap{max-width:900px;margin:0 auto;padding:24px 20px}
+</style></head><body><div class="wrap"><a href="index.html" style="font-size:13px;color:var(--deal);font-weight:700">← トップへ戻る</a><h1 style="margin:10px 0 4px">開封済</h1><div class="cnt" id="count">1件</div><div class="grid" id="grid"></div><button class="loadmore" id="loadmore">もっと見る（次の50件）</button><script>const CARDS=[{"id": "712256", "num": "開封済", "sc": "開封済", "rbase": "", "vcode": "", "vname": "", "lang": "ja", "char": "ドン!!カード : ロビン&ウタ&ナミ&ハンコック スーパーパラレル", "set": "ワンピース ヒロインズエディション スペシャルセット", "psa10": 84000, "slug": "開封済__ja"}];const PAGE=50;let shown=0;
+function cardHTML(c){
+  const vn=c.vname?' ('+c.vname+')':'';const lang=c.lang==='en'?' [英]':'';
+  const img=c.slug?`<div class="thumb"><img loading="lazy" src="images/${c.slug}.webp" onerror="this.parentElement.classList.add('noimg')"></div>`:`<div class="thumb noimg"></div>`;
+  return `<a class="card" href="card_${c.id}.html">${img}<div class="eb">${c.num}${lang}</div><div class="cn">${c.char}</div><div class="vr">${c.vcode}${vn}</div><div class="pr"><span class="lb">PSA10 最安値</span>${c.psa10?'¥'+Number(c.psa10).toLocaleString('ja-JP'):'—'}</div></a>`;
+}
+const grid=document.getElementById('grid'),count=document.getElementById('count'),btn=document.getElementById('loadmore');function more(){const nx=CARDS.slice(shown,shown+PAGE);grid.insertAdjacentHTML('beforeend',nx.map(cardHTML).join(''));shown+=nx.length;count.textContent=shown+' / '+CARDS.length+' 件';if(shown>=CARDS.length)btn.style.display='none';}if(!CARDS.length){grid.innerHTML='<div class="empty">該当なし</div>';btn.style.display='none';}else more();btn.addEventListener('click',more);</script></div></body></html>
